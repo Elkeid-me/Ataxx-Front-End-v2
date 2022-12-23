@@ -1,0 +1,7 @@
+/.cache
+/.vscode
+/.VSCodeCounter
+/.xmake
+/build
+compile_commands.json
+.clang-format
