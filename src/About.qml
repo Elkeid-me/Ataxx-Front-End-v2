@@ -8,7 +8,7 @@ Item {
         width: 126
         height: 32
         color: "#707070"
-        text: "同化棋"
+        text: "同化棋 2.0"
         anchors.horizontalCenter: parent.horizontalCenter
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
@@ -20,7 +20,7 @@ Item {
         width: 126
         height: 32
         color: "#595959"
-        text: "计算概论 A 大作业\n\n设计：吕钊杰\n灵感：Microsoft Fluent Design\n背景为 KDE Plasma 默认桌面\n字体为 Microsoft YaHei UI Light"
+        text: "计算概论 A 大作业\n\n设计：吕钊杰\n灵感：Microsoft Fluent Design\n背景为 KDE Plasma 默认桌面\n字体为 Microsoft YaHei UI Light\n\n基于 GPLv3 协议开源"
         PropertyAnimation on opacity {
             from: 0
             to: 1
