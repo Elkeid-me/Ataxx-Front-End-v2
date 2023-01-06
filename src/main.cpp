@@ -2,7 +2,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-#include <cstddef>
 
 void register_to_engine(QQmlApplicationEngine &engine, GameData &game_data)
 {
