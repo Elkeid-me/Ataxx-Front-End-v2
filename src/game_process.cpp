@@ -1,6 +1,7 @@
 #include "GameData.h"
 #include <algorithm>
 #include <cmath>
+#include <ranges>
 #include <utility>
 
 static int Chebyshev_distance(std::pair<int, int> point_1, std::pair<int, int> point_2)
@@ -25,9 +26,9 @@ Q_INVOKABLE void GameData::new_game()
     m_steps = 0;
     m_enable_timer = true;
 
-    for (int i{0}; i < 7; i++)
+    for (int i : std::views::iota(0, 7))
     {
-        for (int j{0}; j < 7; j++)
+        for (int j : std::views::iota(0, 7))
             set_cell_state(i, j, CellState::empty);
     }
 
@@ -47,9 +48,9 @@ Q_INVOKABLE void GameData::clean()
     m_steps = 0;
     m_enable_timer = false;
 
-    for (int i{0}; i < 7; i++)
+    for (int i : std::views::iota(0, 7))
     {
-        for (int j{0}; j < 7; j++)
+        for (int j : std::views::iota(0, 7))
             set_cell_state(i, j, CellState::empty);
     }
 }
@@ -63,9 +64,9 @@ void GameData::set_start(int row, int column)
 
     set_cell_state(row, column, new_state);
 
-    for (int i{row - 2}; i <= row + 2; i++)
+    for (int i : std::views::iota(row - 2, row + 3))
     {
-        for (int j{column - 2}; j <= column + 2; j++)
+        for (int j : std::views::iota(column - 2, column + 3))
         {
             if (is_point_legal({i, j}) && m_cell_data[i][j].get_state() == CellState::empty)
             {
@@ -89,9 +90,9 @@ void GameData::clean_start()
 
     set_cell_state(m_start_row, m_start_column, new_state);
 
-    for (int i{m_start_row - 2}; i <= m_start_row + 2; i++)
+    for (int i : std::views::iota(m_start_row - 2, m_start_row + 3))
     {
-        for (int j{m_start_column - 2}; j <= m_start_column + 2; j++)
+        for (int j : std::views::iota(m_start_column - 2, m_start_column + 3))
         {
             if (is_point_legal({i, j}) && (m_cell_data[i][j].get_state() == CellState::distance_1 || m_cell_data[i][j].get_state() == CellState::distance_2))
                 set_cell_state(i, j, CellState::empty);
@@ -146,9 +147,9 @@ void GameData::move(int start_row, int start_column, int destination_row, int de
     CellState current_cell_state{m_game_state == GameState::white_moving ? CellState::white : CellState::black};
 
     CellState enemy_cell_state{current_cell_state == CellState::white ? CellState::black : CellState::white};
-    for (int i{destination_row - 1}; i <= destination_row + 1; i++)
+    for (int i : std::views::iota(destination_row - 1, destination_row + 2))
     {
-        for (int j{destination_column - 1}; j <= destination_column + 1; j++)
+        for (int j : std::views::iota(destination_column - 1, destination_column + 2))
         {
             if (is_point_legal({i, j}) && m_cell_data[i][j].get_state() == enemy_cell_state)
                 set_cell_state(i, j, current_cell_state);
@@ -171,9 +172,9 @@ void GameData::move(int start_row, int start_column, int destination_row, int de
 
 bool GameData::can_move(int row, int column) const
 {
-    for (int i{row - 2}; i <= row + 2; i++)
+    for (int i : std::views::iota(row - 2, row + 3))
     {
-        for (int j{column - 2}; j <= column + 2; j++)
+        for (int j : std::views::iota(column - 2, column + 3))
         {
             if (is_point_legal({i, j}) && m_cell_data[i][j].get_state() == CellState::empty)
                 return true;
@@ -187,9 +188,9 @@ void GameData::check_win()
 {
     int n_white{0}, n_black{0};
     bool white_can_move{false}, black_can_move{false};
-    for (int i{0}; i < 7; i++)
+    for (int i : std::views::iota(0, 7))
     {
-        for (int j{0}; j < 7; j++)
+        for (int j : std::views::iota(0, 7))
         {
             if (m_cell_data[i][j].get_state() == CellState::white)
             {

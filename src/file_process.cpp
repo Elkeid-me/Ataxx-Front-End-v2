@@ -1,12 +1,13 @@
 #include "GameData.h"
 #include <fstream>
+#include <ranges>
 
 Q_INVOKABLE void GameData::save()
 {
     unsigned long long black{0}, white{0};
-    for (int i{0}; i < 7; i++)
+    for (int i : std::views::iota(0, 7))
     {
-        for (int j{0}; j < 7; j++)
+        for (int j : std::views::iota(0, 7))
         {
             if (m_cell_data[i][j].get_state() == CellState::black || m_cell_data[i][j].get_state() == CellState::black_selected)
                 black |= 1ULL << (i << 3 | j);
@@ -42,9 +43,9 @@ Q_INVOKABLE void GameData::load()
 
     unsigned long long temp_black{0}, temp_white{0};
 
-    for (int i{0}; i < 7; i++)
+    for (int i : std::views::iota(0, 7))
     {
-        for (int j{0}; j < 7; j++)
+        for (int j : std::views::iota(0, 7))
         {
             temp_black = 1ULL & (black >> (i << 3 | j));
             temp_white = 1ULL & (white >> (i << 3 | j));

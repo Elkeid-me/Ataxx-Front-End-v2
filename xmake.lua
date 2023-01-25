@@ -1,4 +1,5 @@
 target("Ataxx_Front_End")
+    set_languages("cxx20")
     add_rules("qt.quickapp")
     add_files("src/*.h")
     add_files("src/*.cpp")

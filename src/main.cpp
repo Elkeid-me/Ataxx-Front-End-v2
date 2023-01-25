@@ -2,11 +2,12 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <ranges>
 
 void register_to_engine(QQmlApplicationEngine &engine, GameData &game_data)
 {
     engine.rootContext()->setContextProperty("game_data", &game_data);
-    for (int i{0}; i < 49; i++)
+    for (int i : std::views::iota(0, 49))
         engine.rootContext()->setContextProperty(QString{"cell_data_%1"}.arg(i), game_data.get_cell_data_ptr(i));
 }
 
