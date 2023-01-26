@@ -10,7 +10,7 @@
 
 ## 编译指南
 
-要求安装 Qt 5.15.2 SDK，MSVC v142（VS 2019）或 MSVC v143（VS 2022）。同时，你还需要安装 [xmake](https://xmake.io/#/zh-cn/) 作为构建系统。
+要求安装 Qt 5.15.2 SDK，MSVC v143（VS 2022）。同时，你还需要安装 [xmake](https://xmake.io/#/zh-cn/) 作为构建系统。
 
 运行命令 xmake 构建程序。之后，你需要运行 Qt 的 windeploy，来打包必要的动态链接库文件。对于 Ataxx Front End，大致的命令如下：
 
