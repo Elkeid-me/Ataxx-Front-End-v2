@@ -40,7 +40,6 @@
   - `/src/rcs.qrc`：资源文件。由 Qt Creator 自动生成。
   - `/src/TextButton.qml`：一个可以显示文字的按钮。效果类似于微软 Fluent Design。
   - `/src/Yule_v2.cpp`：计划中的新一代同化棋 AI，但目前没有任何用。
-- `.clang-format`：`clang format` 的配置文件，用于统一本项目的代码风格。
 - `.gitignore`：用于从 git 中排除一些文件。
 - `LICENSE`：GNU 通用公共许可证 v3
 - `README.md`：本文件。
