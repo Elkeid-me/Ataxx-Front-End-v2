@@ -10,9 +10,11 @@
 
 ## 编译指南
 
-要求安装 Qt 5.15.2 SDK，MSVC v143（VS 2022）。同时，你还需要安装 [xmake](https://xmake.io/#/zh-cn/) 作为构建系统。
+对于 Windows 系统，要求安装 Qt 5.15.2 SDK，MSVC v143（VS 2022）。同时，你还需要安装 [xmake](https://xmake.io/#/zh-cn/) 作为构建系统。
 
-运行命令 xmake 构建程序。之后，你需要运行 Qt 的 windeploy，来打包必要的动态链接库文件。
+对于其他操作系统未经测试。但本项目只使用了 Qt 开源版和 C++ 标准库，因此理论上是跨平台的。你需要使用支持 C++ 20 标准的编译器编译。
+
+本项目的默认 GUI 字体为 Microsoft YaHei UI Light。对于其他操作系统，你需要自行更改字体。
 
 ## 源代码文件系统结构
 
@@ -44,6 +46,3 @@
 - `LICENSE`：GNU 通用公共许可证 v3
 - `README.md`：本文件。
 - `xmake.lua`: xmake 的配置文件。
-
-
-注意：在现代的 C++ IDE 中，通常将 C++ 标准中的“成员函数”（member function）称为“实例方法”（instance method）或“方法”（method）；将“成员变量”（member variable）称为“字段”（field）。
