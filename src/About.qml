@@ -1,3 +1,20 @@
+// Copyright (C) 2021-2024 Elkeid-me
+//
+// This file is part of Ataxx Frontend.
+//
+// Ataxx Frontend is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Ataxx Frontend is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Ataxx Frontend.  If not, see <http://www.gnu.org/licenses/>.
+
 import QtQuick 2.3
 
 Item {
@@ -20,7 +37,7 @@ Item {
         width: 126
         height: 32
         color: "#595959"
-        text: "计算概论 A 大作业\n\n设计：吕钊杰\n灵感：Microsoft Fluent Design\n背景为 KDE Plasma 默认桌面\n字体为 Microsoft YaHei UI Light\n\n基于 GPLv3 协议开源"
+        text: "计算概论 A 大作业\n\n设计：Elkeid-me\n灵感：Microsoft Fluent Design\n背景为 KDE Plasma 默认桌面\n字体为 Microsoft YaHei UI Light\n\n基于 GPLv3 协议开源"
         PropertyAnimation on opacity {
             from: 0
             to: 1
